@@ -1,0 +1,58 @@
+package com.chitkara.interfac;
+
+interface Shape1 {
+
+	void getArea();
+
+	void getPerimeter();
+}
+
+interface color {
+
+	void getColor();
+}
+
+class Rectangle1 implements Shape1, color {
+
+	double area;
+	double perimeter;
+	String color = "Red";
+
+	public Rectangle1(Double l, Double w) {
+		this.area = l * w;
+		this.perimeter = 2 * (l + w);
+	}
+
+	@Override
+	public void getArea() {
+		System.out.println("Area of Rectangle : " + area);
+	}
+
+	@Override
+	public void getPerimeter() {
+		System.out.println("Perimeter of Circle : " + perimeter);
+	}
+
+	@Override
+	public void getColor() {
+		System.out.println("Color of Rectangle : " + color);
+
+	}
+
+}
+
+@FunctionalInterface
+interface MathOperation {
+	int operate(int a, int b);
+}
+
+public class G9 {
+	public static void main(String[] args) {
+		Rectangle1 rectangle1 = new Rectangle1(5.0, 6.0);
+		rectangle1.getArea();
+		rectangle1.getPerimeter();
+		rectangle1.getColor();
+
+	}
+
+}

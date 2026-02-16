@@ -1,0 +1,103 @@
+package com.chitkara.interfac;
+
+/*
+ * Feature, Before Java 8, After Java 8
+ * 
+ * Abstract Methods, Allowed, Allowed
+ * 
+ * Method Bodies, Impossible, Possible(via default)
+ * 
+ * Static Methods, Not Allowed, Allowed
+ * 
+ * Lambdas, No, Yes(Functional Interfaces)
+ */
+
+class Shape {
+//	String colorOfShape = "Red"; // psf --> public static final
+//	colorOfShape ="blue";
+
+	double getArea(); // abstract method
+
+	void getPerimeter(); // abstract method
+
+}
+
+class CreateToy {
+
+	void getToy();
+
+}
+
+class Rectangle extends Shape {
+
+	double length;
+	double width;
+
+	Rectangle(double l, double w) {
+		this.length = l;
+		this.width = w;
+	}
+
+	public double getArea() {
+		return length * width;
+
+	}
+
+	@Override
+	public void getPerimeter() {
+		System.out.println(2 * (length + width));
+
+	}
+
+	@Override
+	public void getToy() {
+//		return "Toy is Created...";
+		System.out.println("Toy is Created...");
+	}
+
+}
+
+class Square implements Shape {
+
+	double length;
+
+	Square(double l) {
+		this.length = l;
+
+	}
+
+	public double getArea() {
+//		return length * length;
+		return Math.pow(length, 2);
+
+	}
+
+	@Override
+	public void getPerimeter() {
+		System.out.println(4 * (length));
+
+	}
+
+}
+
+// I can not create an object of the interface. can not create constructor
+// an interface can not have an object's states.
+
+class Main15 {
+	public static void main(String[] args) {
+		Shape shape = new Rectangle(5, 10);
+
+		System.out.println(shape.getArea());
+		shape.getPerimeter();
+
+		CreateToy createToy = new Rectangle(2, 3);
+		createToy.getToy();
+
+		System.out.println("==========================");
+		Shape shape1 = new Square(5.0);
+		System.out.println(shape1.getArea());
+		shape1.getPerimeter();
+
+	}
+
+}

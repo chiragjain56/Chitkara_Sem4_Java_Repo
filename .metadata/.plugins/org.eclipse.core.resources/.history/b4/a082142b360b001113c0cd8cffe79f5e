@@ -1,0 +1,33 @@
+package com.chitkara.interfac;
+
+/*
+ * Feature, Before Java 8, After Java 8
+ * 
+ * Abstract Methods, Allowed, Allowed
+ * 
+ * Method Bodies, Impossible, Possible(via default)
+ * 
+ * Static Methods, Not Allowed, Allowed
+ * 
+ * Lambdas, No, Yes(Functional Interfaces)
+ */
+
+interface Student {
+	int id = 1; // psf
+
+}
+
+interface Shape {
+	String colorOfShape = "Red"; // psf --> public static final
+//	colorOfShape ="blue";
+
+}
+
+// I can not create an object of the interface.
+
+class Main15 {
+	public static void main(String[] args) {
+		Shape shape;
+	}
+
+}

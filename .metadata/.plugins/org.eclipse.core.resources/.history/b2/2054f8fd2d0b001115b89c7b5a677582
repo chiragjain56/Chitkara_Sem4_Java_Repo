@@ -1,0 +1,48 @@
+package com.chitkara.task;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class ValantineEvent {
+	public static void main(String[] args) {
+
+		// 1. LocalDate: Just the date (Year, Month, Day)
+		// Imagine setting the date for a Love Fest at Chitkara...
+
+		LocalDate eventDate = LocalDate.of(2026, 2, 14);
+		LocalDate eventDate2 = LocalDate.now();
+
+		// 2. LocalTime: Just the time (Hour, Minute, Second)
+		// Imagine setting the "Doors Open for Love fest" time
+
+		LocalTime startTime = LocalTime.of(15, 30); // 3:30 PM
+		LocalTime currentTime = LocalTime.now();
+
+		for (int i = 0; i < 100000; i++) {
+
+		}
+
+		LocalTime currentTime2 = LocalTime.now();
+
+		System.out.println(currentTime2 - currentTime);
+		// 3. LocalDateTime: Combines both
+		LocalDateTime fullEventInfo = LocalDateTime.of(eventDate, startTime);
+
+		System.out.println("--- Event Details ---");
+
+		System.out.println("Date: " + eventDate);
+		System.out.println("Time: " + startTime);
+
+		System.out.println("Full Schedule: " + fullEventInfo);
+
+		// 4. Useful Methods (The "Magic")
+		LocalDate nextWeek = eventDate.plusWeeks(1);
+		System.out.println("\nRescheduled Date (1 week later): " + nextWeek);
+
+		// 5. Formatting (Making it look pretty for the UI)
+		DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MMM-yyyy hh:mm a");
+		System.out.println("User Friendly Format: " + fullEventInfo.format(myFormat));
+	}
+}

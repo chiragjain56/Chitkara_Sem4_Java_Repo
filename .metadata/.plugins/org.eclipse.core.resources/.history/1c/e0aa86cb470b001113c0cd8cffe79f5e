@@ -1,0 +1,19 @@
+package com.chitkara.interfac;
+
+/*
+ * Feature, Before Java 8, After Java 8
+ * 
+ * Abstract Methods, Allowed, Allowed
+ * 
+ * Method Bodies, Impossible, Possible(via default)
+ * 
+ * Static Methods, Not Allowed, Allowed
+ * 
+ * Lambdas, No, Yes(Functional Interfaces)
+ * 
+ * private static Methods --> after java9 -->private static method is allowed
+ */
+
+interface Shape {
+	String colorname = "Red";
+}

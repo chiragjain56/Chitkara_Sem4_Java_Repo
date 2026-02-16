@@ -1,96 +1,157 @@
 package com.chitkara.interfac;
 
-/*  Feature,  Before Java 8,  After Java 8
-   
-    Abstract 
-    Methods,     Allowed,     Allowed 
-   
-    Method
-    Bodies,     Impossible,   Possible(via default)
-   
-    Static
-    Methods,    Not Allowed,   Allowed 
-   
-    Lambdas,       No,         Yes(Functional Interfaces)
-*/
+/*
+ * Feature, Before Java 8, After Java 8
+ * 
+ * Abstract Methods, Allowed, Allowed
+ * 
+ * Method Bodies, Impossible, Possible(via default)
+ * 
+ * Static Methods, Not Allowed, Allowed
+ * 
+ * Lambdas, No, Yes(Functional Interfaces)
+ * 
+ * private static Methods --> after java9 -->private static method is allowed
+ */
 
+// make a relation Can Do
+
+// interface is used to get 100% abstraction and multiple inheritance
+
+// you can create a default method and override it in the class
 interface Shape {
-	double getArea();
+	String colorname = "white"; // PSF --> public static final
 
-	double getPerimeter();
+	double getArea();// abstract method
+
+	void getPerameter(); // abstract method
+
+	default void toMake(String name) { // default method after java 8
+		if (permission(name))
+			System.out.println("go for it...");
+		else {
+			System.out.println("Not allowed...");
+		}
+	}
+
+	static void getSms(char a, char b) {
+//		if (a == b)
+//			System.out.println("get the sms...");
+//		else {
+//			System.out.println("not geting");
+//		}
+		getMess(a, b);
+	}
+
+	static void getMessage(char a, char b) { // static method after java 8
+//		if (a == b)
+//			System.out.println("yes , i am getting the shape..");
+//		else
+//			System.out.println("not getting..");
+		getMess(a, b);
+	}
+
+	private static boolean permission(String name) { // private static method after java 9
+		if (name == "Chirag")
+			return true;
+		else {
+			return false;
+		}
+	}
+
+	private static void getMess(char a, char b) {
+		if (a == b)
+			System.out.println("yes , i am getting the shape..");
+		else
+			System.out.println("not getting..");
+	}
 
 }
 
-class Circle implements Shape {
-	private double radius;
+interface CreateToy {
+	void getToy();
+}
 
-	public Circle(double radius) {
-		this.radius = radius;
+class Rectangle implements Shape, CreateToy {
+
+	double lenght;
+	double width;
+
+	public Rectangle(double l, double w) {
+		this.lenght = l;
+		this.width = w;
 	}
 
 	@Override
 	public double getArea() {
-		return Math.PI * Math.pow(radius, 2);
+
+		return lenght * width;
 	}
 
 	@Override
-	public double getPerimeter() {
-		return 2 * Math.PI * radius;
+	public void getPerameter() {
+		System.out.println(2 * (lenght + width));
+
 	}
+
+	@Override
+	public void getToy() {
+		System.out.println("My toy is in rectangle shape...");
+
+	}
+
 }
 
-class Rectangle implements Shape {
-	private double width;
-	private double height;
+class Square implements Shape, CreateToy {
+	int side;
 
-	public Rectangle(double width, double height) {
-		this.width = width;
-		this.height = height;
+	public Square(int a) {
+		this.side = a;
+	}
+
+	@Override
+	public void getToy() {
+		System.out.println("getting toy of square shape...");
+
 	}
 
 	@Override
 	public double getArea() {
-		return width * height;
-	}
-
-	@Override
-	public double getPerimeter() {
-		return 2 * (width + height);
-	}
-}
-
-class Square implements Shape {
-	private double side;
-
-	public Square(double side) {
-		this.side = side;
-	}
-
-	@Override
-	public double getArea() {
+		// TODO Auto-generated method stub
 		return side * side;
 	}
 
 	@Override
-	public double getPerimeter() {
-		return 4 * side;
+	public void getPerameter() {
+		System.out.println(4 * side);
+
 	}
+
 }
 
-public class ShapeExample {
+//we can not create an object of an interface so we can define the states of an obj.
+
+class Main20 {
 	public static void main(String[] args) {
 
-		Shape[] shapes = { new Circle(5.0), new Rectangle(4.0, 10.0), new Square(3.0) };
+		Shape shape = new Rectangle(5.5, 10.5); // Reference variable
+		System.out.println(Shape.colorname);
+//		Shape.getMessage();
+		shape.toMake("Mohit");
 
-		System.out.println("--- Geometry Results ---");
+		System.out.println(shape.getArea());
+		shape.getPerameter();
 
-		for (Shape s : shapes) {
-			// We don't need to know if it's a circle or square
-			// We just know it's a "Shape" and must have these methods
-			System.out.println("Type: " + s.getClass().getSimpleName());
-			System.out.printf("Area: %.2f\n", s.getArea());
-			System.out.printf("Perimeter: %.2f\n", s.getPerimeter());
-			System.out.println("------------------------");
-		}
+		Shape shape2 = new Square(15);
+		System.out.println(shape2.getArea());
+		shape2.getPerameter();
+
+		CreateToy createToy = new Rectangle(5.5, 10.5);
+		CreateToy createToy2 = new Square(12);
+		createToy.getToy();
+		createToy2.getToy();
+
+		Rectangle rectangle = new Rectangle(2, 3);
+
 	}
 }

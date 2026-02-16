@@ -1,0 +1,52 @@
+package com.chitkara.interfac;
+
+/*
+ * Feature, Before Java 8, After Java 8
+ * 
+ * Abstract Methods, Allowed, Allowed
+ * 
+ * Method Bodies, Impossible, Possible(via default)
+ * 
+ * Static Methods, Not Allowed, Allowed
+ * 
+ * Lambdas, No, Yes(Functional Interfaces)
+ * 
+ * private static Methods --> after java9 -->private static method is allowed
+ */
+
+// make a relation Can Do
+
+interface Shape {
+	String colorname = "white"; // PSF --> public static final
+
+	void getArea();// abstract method
+
+	void getPerameter();
+
+}
+
+interface CreateToy {
+	void getToy();
+}
+
+class Rectangle {
+
+	double lenght;
+	double width;
+
+	public Rectangle(double l, double w) {
+		this.lenght = l;
+		this.width = w;
+	}
+
+}
+
+//we can not create an object of an interface so we can define the states of an obj.
+
+class Main20 {
+	public static void main(String[] args) {
+
+		Shape shape; // Reference variable
+		System.out.println(Shape.colorname);
+	}
+}

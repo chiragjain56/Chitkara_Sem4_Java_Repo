@@ -1,0 +1,60 @@
+package com.chitkara.interfac;
+
+interface Phone {
+
+	String callString = "calling"; // public static final
+
+	void makeCall(String number);// abstract method
+
+	default void makeMessage() {
+		System.out.println("Messageing...");
+	}
+
+	static void 
+}
+
+interface Camera {
+	void takePhoto();
+}
+
+interface MusicPlayer {
+	void playSong(String title);
+}
+
+class SmartPhone implements Phone, Camera, MusicPlayer {
+	private String model;
+
+	public SmartPhone(String model) {
+		this.model = model;
+	}
+
+	@Override
+	public void makeCall(String number) {
+		System.out.println(model + " calling " + number);
+	}
+
+	@Override
+	public void takePhoto() {
+		System.out.println(model + " taking photo");
+	}
+
+	@Override
+	public void playSong(String title) {
+		System.out.println(model + " playing " + title);
+	}
+}
+
+public class SmartDeviceExample {
+	public static void main(String[] args) {
+		SmartPhone myIPhone = new SmartPhone("iPhone 15");
+
+		Phone p = myIPhone;
+		p.makeCall("95954-16394");
+
+		Camera c = myIPhone;
+		c.takePhoto();
+
+		MusicPlayer m = myIPhone;
+		m.playSong("Tumse hi...");
+	}
+}

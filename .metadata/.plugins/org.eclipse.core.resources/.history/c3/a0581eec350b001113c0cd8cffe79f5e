@@ -1,0 +1,26 @@
+package com.chitkara.interfac;
+
+/*
+ * Feature, Before Java 8, After Java 8
+ * 
+ * Abstract Methods, Allowed, Allowed
+ * 
+ * Method Bodies, Impossible, Possible(via default)
+ * 
+ * Static Methods, Not Allowed, Allowed
+ * 
+ * Lambdas, No, Yes(Functional Interfaces)
+ */
+
+interface Shape {
+	String colorOfShape = "Red"; // psf --> public static final
+//	colorOfShape ="blue";
+
+}
+
+class Main15 {
+	public static void main(String[] args) {
+		Shape shape = new Shape();
+	}
+
+}

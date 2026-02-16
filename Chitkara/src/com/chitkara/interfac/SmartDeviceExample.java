@@ -1,7 +1,23 @@
 package com.chitkara.interfac;
 
 interface Phone {
-	void makeCall(String number);
+
+	String callString = "calling"; // public static final
+
+	void makeCall(String number);// abstract method
+
+	default void makeMessage() {
+		validAuthenticate();
+		System.out.println("Messageing...");
+	}
+
+	static void playGame() {
+		System.out.println("Playing game...");
+	}
+
+	private static void validAuthenticate() {
+		System.out.println("Authenticated....");
+	}
 }
 
 interface Camera {
