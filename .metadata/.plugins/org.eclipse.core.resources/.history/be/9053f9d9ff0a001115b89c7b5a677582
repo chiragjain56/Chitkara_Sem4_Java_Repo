@@ -1,0 +1,9 @@
+package com.chitkara.interfac;
+
+interface Shape1 {
+
+}
+
+public class G9 {
+
+}

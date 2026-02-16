@@ -1,0 +1,10 @@
+package com.chitkara.task;
+
+public final class Student {
+	int id;
+
+}
+
+class child extends Student {
+
+}

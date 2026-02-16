@@ -1,0 +1,34 @@
+package com.chitkara.interfac;
+
+interface Shape1 {
+
+	void getArea();
+
+	void getPerimeter();
+}
+
+class Rectangle1 implements Shape1 {
+
+	double area;
+	double perimeter;
+
+	public Rectangle1(int l, int w) {
+		this.area = l * w;
+		this.perimeter = 2 * (l + w);
+	}
+
+	@Override
+	public void getArea() {
+		System.out.println("Area of Rectangle : " + area);
+	}
+
+	@Override
+	public void getPerimeter() {
+		System.out.println("Perimeter of Circle : " + perimeter);
+	}
+
+}
+
+public class G9 {
+
+}

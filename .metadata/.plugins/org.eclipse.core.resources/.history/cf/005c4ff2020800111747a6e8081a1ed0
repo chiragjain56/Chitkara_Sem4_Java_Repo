@@ -1,0 +1,14 @@
+package com.chitkara.task;
+
+//final keyword: 
+public final class Student {
+	int id;
+
+	void study() {
+	}
+
+}
+
+class child extends Student {
+
+}

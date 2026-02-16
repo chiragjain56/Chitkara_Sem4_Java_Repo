@@ -1,0 +1,8 @@
+package com.chitkara.accessmodifier;
+
+//private within the classes 
+//default within the packages
+//
+public class Student {
+	private int marks = 60;
+}

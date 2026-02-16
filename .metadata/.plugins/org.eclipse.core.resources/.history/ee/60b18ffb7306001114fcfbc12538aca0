@@ -1,0 +1,47 @@
+package com.chitkara.task;
+
+import java.util.Scanner;
+
+import com.chitkara.accessmodifier.Student;
+
+public class Task {
+	boolean isPrime(int num) {
+		if (num <= 1)
+			return false;
+
+		for (int i = 2; i <= num; i++) {
+			if (num % i == 0)
+				return false;
+		}
+		return true;
+	}
+
+	public static void main(String[] args) {
+		Task task = new Task();
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the length: ");
+		int n = sc.nextInt();
+		sc.nextLine();
+		int[] arr = new int[n];
+
+		for (int i = 0; i < n; i++) {
+			System.out.println("Enter the num to inset int the array : ");
+			arr[i] = sc.nextInt();
+			sc.nextLine();
+		}
+
+		for (int e : arr) {
+			if (task.isPrime(e)) {
+				System.out.println(e + " ");
+			} else {
+				System.out.println("Not Prime: " + e);
+			}
+		}
+
+		Student student = new Student();
+		student.marks = 90;
+
+	}
+
+}

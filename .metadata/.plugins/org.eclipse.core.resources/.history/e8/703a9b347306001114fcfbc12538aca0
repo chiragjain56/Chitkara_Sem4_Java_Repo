@@ -1,0 +1,10 @@
+package com.chitkara.accessmodifier;
+
+//private within the classes 
+//default within the packages
+//protected is used outside the packages by inheritance
+//public is used anywhere
+
+class Student {
+	int marks = 60;
+}

@@ -1,0 +1,20 @@
+package com.chitkara.task;
+
+//final keyword: 
+public class Student {
+	int id;
+
+	void study() {
+		System.out.println("inside the study...");
+		id = 3;
+	}
+
+}
+
+class child extends Student {
+
+	void study() {
+
+	}
+
+}

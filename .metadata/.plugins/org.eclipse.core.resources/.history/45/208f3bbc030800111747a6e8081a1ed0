@@ -1,0 +1,9 @@
+package com.chitkara.interfac;
+
+interface shape {
+
+}
+
+class Demo {
+
+}

@@ -1,0 +1,23 @@
+package com.chitkara.task;
+
+//final keyword: 
+// 1. if i declare the class as a final , i can not extend or inherit from child class
+// 2. if i define a method be final , i can not overide it 
+// 3. if i declare the variable final , i can not modify within the class also 
+public class Student {
+	final int id = 1;
+
+	void study() {
+		System.out.println("inside the study...");
+		id = 3;
+	}
+
+}
+
+class child extends Student {
+
+	void study() {
+
+	}
+
+}

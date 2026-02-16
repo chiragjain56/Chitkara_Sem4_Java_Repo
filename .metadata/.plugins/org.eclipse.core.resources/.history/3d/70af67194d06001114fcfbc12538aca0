@@ -1,0 +1,15 @@
+package com.chitkara.accessmodifier;
+
+class child extends Student{
+	public void getMarks() {
+		System.out.println(marks);
+	}
+
+}
+
+public class Demo {
+	public static void main(String[] args) {
+		Student student = new Student();
+
+	}
+}

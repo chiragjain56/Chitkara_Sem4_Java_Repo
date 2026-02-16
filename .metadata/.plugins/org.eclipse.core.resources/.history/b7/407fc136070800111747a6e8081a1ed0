@@ -1,0 +1,29 @@
+package com.chitkara.interfac;
+
+class Animal {
+	void eat() {
+		System.out.println("Animal can eat...");
+	}
+}
+
+class Dog extends Animal {
+
+	void eat() {
+		System.out.println("Dog can eat..");
+	}
+}
+
+class Cat extends Animal {
+
+	void eat() {
+		System.out.println("Cat can eat...");
+	}
+}
+
+class puppy extends Dog {
+	
+	void eat() {
+		
+	}
+
+}

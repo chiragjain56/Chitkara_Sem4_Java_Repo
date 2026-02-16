@@ -1,0 +1,47 @@
+package com.chitkara.task;
+
+import java.util.Scanner;
+
+public class Task1 {
+
+	boolean isPrime(int num) {
+		if (num <= 1)
+			return false;
+
+		for (int i = 2; i * i <= num; i++) {
+			if (num % i == 0)
+				return false;
+		}
+
+		return true;
+	}
+
+	public static void main(String[] args) {
+		Task1 task1 = new Task1();
+
+		Scanner scanner = new Scanner(System.in);
+		int t;
+		t = scanner.nextInt();
+		while (--t) {
+			System.out.println("Enter the lenght of an array: ");
+			int n = scanner.nextInt();
+			scanner.nextLine();
+
+			int[] arr = new int[n];
+			for (int i = 0; i < n; i++) {
+				System.out.println("Enter the value in array at index:  " + i);
+				arr[i] = scanner.nextInt();
+				scanner.nextLine();
+			}
+		}
+		for (int i : arr) {
+			if (task1.isPrime(i))
+				System.out.print("the no is prime: " + i + " ");
+			else {
+				System.out.println("not prime: " + i);
+			}
+		}
+
+	}
+
+}

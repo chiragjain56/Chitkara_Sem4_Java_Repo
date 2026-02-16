@@ -1,0 +1,116 @@
+package com.chitkara.arrays;
+
+//class Student {
+//	int id;
+//	String name;
+//
+//	public Student(int id, String name) {
+//
+//		this.id = id;
+//		this.name = name;
+//	}
+//
+//}
+
+public class DemoG6 {
+	public static void main(String[] args) {
+
+//		Student[] students = new Student[6];
+//		students[0] = new Student(1, "Harsh");
+//		students[1] = new Student(2, "Palak");
+//		students[2] = new Student(3, "Parul");
+//		students[3] = new Student(4, "Urvi");
+//		students[4] = new Student(5, "Vishnu");
+//		students[5] = new Student(6, "Devansh");
+//
+//		for (Student e : students) {
+//			System.out.println(e.id + " " + e.name);
+//		}
+
+		int[][] Array_2d = new int[3][3];
+		Array_2d[0][0] = 11;
+		Array_2d[0][1] = 12;
+		Array_2d[0][2] = 13;
+
+		Array_2d[1][0] = 14;
+		Array_2d[1][1] = 15;
+		Array_2d[1][2] = 16;
+
+		Array_2d[2][0] = 17;
+		Array_2d[2][1] = 18;
+		Array_2d[2][2] = 19;
+		
+		for(int i = 0;i<3;i++) {
+			for(int j = 0;j<3;j++) {
+				System.out.println(Array_2d[e][j]);
+			}
+		}
+
+	}
+}
+
+//		DemoG6 demoG6 = new DemoG6();
+//		int[] arr1 = new int[5];
+//
+//		int[] arr2 = { 1, 2, 3, 4, 5, 6 };
+
+//		char[] ch = new char[4];
+//
+//		String[] str = new String[5];
+//		str[0] = "Harsh";
+//
+//		arr[0] = 1;
+//		arr[1] = 2;
+//		arr[2] = 3;
+//		arr[3] = 4;
+//		arr[4] = 5;
+//		arr[5] = 6;
+//		for (int i = 0; i <= arr.length; i++) {
+//			System.out.print(arr[i] + " ");
+//		}
+//
+//		System.out.println();
+//		for (int e : arr) {
+//			System.out.print(e + " ");
+//		}
+
+//		Scanner scanner = new Scanner(System.in);
+//		System.out.println("enter the tc: ");
+//		int t = scanner.nextInt();
+//
+//		while (t > 0) {
+//			System.out.println("Enter the length: ");
+//
+//			int n = scanner.nextInt();
+//			scanner.nextLine();
+//
+//			int[] arr = new int[n];
+//
+//			for (int i = 0; i < n; i++) {
+//				System.out.println("Enter the value at index:  " + i);
+//
+//				arr[i] = scanner.nextInt();
+//			}
+//
+//			for (int e : arr) {
+//				if (demoG6.isPrime(e))
+//					System.out.println("The no is prime: " + e);
+//				else {
+//					System.out.println("the no is not prime: " + e);
+//				}
+//			}
+//			t--;
+//		}
+//
+//	}
+
+//	private boolean isPrime(int num) {
+//		if (num <= 1)
+//			return false;
+//		for (int i = 2; i * i <= num; i++) {
+//			if (num % i == 0)
+//				return false;
+//		}
+//		return true;
+//	}
+//}

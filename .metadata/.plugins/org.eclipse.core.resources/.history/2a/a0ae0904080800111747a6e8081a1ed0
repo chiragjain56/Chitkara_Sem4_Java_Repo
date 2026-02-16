@@ -1,0 +1,30 @@
+package com.chitkara.interfac;
+
+class Animal {
+	void eat() {
+		System.out.println("Animal can eat...");
+	}
+}
+
+class Dog  {
+
+	void eat() {
+		System.out.println("Dog can eat..");
+	}
+}
+
+
+class Puppy extends Dog,Animal {
+
+	void eat() {
+		System.out.println("puppy can eat...");
+	}
+
+}
+
+class Demo {
+	public static void main(String[] args) {
+		Puppy p = new Puppy();
+		p.eat();
+	}
+}

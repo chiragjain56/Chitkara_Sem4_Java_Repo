@@ -1,0 +1,94 @@
+package com.chitkara.interfac;
+
+/*  Feature,  Before Java 8,  After Java 8
+    Abstract 
+    Methods,     Allowed,     Allowed 
+   
+    Method
+    Bodies,     Impossible,   Possible(via default)
+   
+    Static
+    Methods,    Not Allowed,   Allowed 
+   
+    Lambdas,       No,         Yes(Functional Interfaces)
+*/
+
+interface Shape {
+	double getArea();
+
+	double getPerimeter();
+}
+
+class Circle implements Shape {
+	private double radius;
+
+	public Circle(double radius) {
+		this.radius = radius;
+	}
+
+	@Override
+	public double getArea() {
+		return Math.PI * Math.pow(radius, 2);
+	}
+
+	@Override
+	public double getPerimeter() {
+		return 2 * Math.PI * radius;
+	}
+}
+
+class Rectangle implements Shape {
+	private double width;
+	private double height;
+
+	public Rectangle(double width, double height) {
+		this.width = width;
+		this.height = height;
+	}
+
+	@Override
+	public double getArea() {
+		return width * height;
+	}
+
+	@Override
+	public double getPerimeter() {
+		return 2 * (width + height);
+	}
+}
+
+class Square implements Shape {
+	private double side;
+
+	public Square(double side) {
+		this.side = side;
+	}
+
+	@Override
+	public double getArea() {
+		return side * side;
+	}
+
+	@Override
+	public double getPerimeter() {
+		return 4 * side;
+	}
+}
+
+public class ShapeExample {
+	public static void main(String[] args) {
+
+		Shape[] shapes = { new Circle(5.0), new Rectangle(4.0, 10.0), new Square(3.0) };
+
+		System.out.println("--- Geometry Results ---");
+
+		for (Shape s : shapes) {
+			// We don't need to know if it's a circle or square
+			// We just know it's a "Shape" and must have these methods
+			System.out.println("Type: " + s.getClass().getSimpleName());
+			System.out.printf("Area: %.2f\n", s.getArea());
+			System.out.printf("Perimeter: %.2f\n", s.getPerimeter());
+			System.out.println("------------------------");
+		}
+	}
+}

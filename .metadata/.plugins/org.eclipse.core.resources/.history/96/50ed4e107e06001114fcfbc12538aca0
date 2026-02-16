@@ -1,0 +1,22 @@
+package com.chitkara.task;
+
+import java.util.Scanner;
+
+public class Tase1 {
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter the lenght of an array: ");
+		int n = scanner.nextInt();
+		scanner.nextLine();
+
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			System.out.println("Enter the value in array at index:  " + i);
+			arr[i] = scanner.nextInt();
+			scanner.nextLine();
+		}
+
+	}
+
+}

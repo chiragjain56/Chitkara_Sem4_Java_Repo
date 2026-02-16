@@ -1,0 +1,43 @@
+package com.chitkara.task;
+
+public class MathOperations {
+	public static void main(String[] args) {
+
+		// 1. abs() - Returns the absolute (positive) value
+		System.out.println("abs: " + Math.abs(-10)); // 10
+		System.out.println("abs: " + Math.abs(-5.5)); // 5.5
+
+		// 2. max() - Returns the greater of two values
+		System.out.println("max: " + Math.max(20, 50)); // 50
+
+		// 3. min() - Returns the smaller of two values
+		System.out.println("min: " + Math.min(20, 50)); // 20
+
+		// 4. sqrt() - Returns square root as a double
+		System.out.println("sqrt: " + Math.sqrt(64)); // 8.0
+
+		// 5. pow() - Returns power (8^2) as a double
+		System.out.println("pow: " + Math.pow(8, 2)); // 64.0
+
+		// 6. random() - Returns a double between 0.0 and 1.0
+		System.out.println("random: " + Math.random());
+
+		// 7. round() - Return type depends on argument type
+		float f = 5.4f;
+		double d = 10.5;
+		int roundInt = Math.round(f); // float -> int
+		long roundLong = Math.round(d); // double -> long
+
+		System.out.println("round (float): " + roundInt);
+		System.out.println("round (double): " + roundLong);
+
+		// 8. ceil() - Rounds UP to the nearest double
+		System.out.println("ceil: " + Math.ceil(4.1)); // 5.0
+
+		// 9. floor() - Rounds DOWN to the nearest double
+		System.out.println("floor: " + Math.floor(4.9)); // 4.0
+
+		// 10. PI - Constant value
+		System.out.println("PI: " + Math.PI); // 3.14159...
+	}
+}

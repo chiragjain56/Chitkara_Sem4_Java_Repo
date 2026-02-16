@@ -1,0 +1,12 @@
+package com.chitkara.bitwise;
+
+public class BitWise {
+	public static void main(String[] args) {
+
+		int a, b;
+		a = 5; //
+		b = 6;
+		
+		
+	}
+}

@@ -1,0 +1,37 @@
+package com.chitkara.interfac;
+
+import java.nio.channels.NonWritableChannelException;
+
+class Animal {
+	void eat() {
+		System.out.println("Animal can eat...");
+	}
+}
+
+class Dog extends Animal {
+
+	void eat() {
+		System.out.println("Dog can eat..");
+	}
+}
+
+class Cat extends Animal {
+
+	void eat() {
+		System.out.println("Cat can eat...");
+	}
+}
+
+class Puppy extends Dog {
+
+	void eat() {
+		System.out.println("puppy can eat...");
+	}
+
+}
+
+class Demo{
+	public static void main(String[] args) {
+		Puppy p = new Puppy();
+	}
+}

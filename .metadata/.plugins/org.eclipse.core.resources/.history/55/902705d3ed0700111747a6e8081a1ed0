@@ -1,0 +1,39 @@
+package com.chitkara.interfac;
+
+//Printable.java
+interface Printable {
+	int age = 23; // static final
+
+	void print();
+
+	void hope() {};
+}
+
+//Showable.java
+interface Showable extends Printable {
+	void show();
+}
+
+//Demo.java
+class Demo implements Showable {
+	public void print() {
+		System.out.println("Hello");
+	}
+
+	public void show() {
+		System.out.println("Welcome");
+	}
+
+	public static void main(String args[]) {
+		System.out.println(Printable.age);
+		Demo obj = new Demo();
+		obj.print();
+		obj.show();
+		Printable p = new Demo();
+
+		p.print();
+		Showable s = new Demo();
+
+		s.show();
+	}
+}

@@ -1,0 +1,4 @@
+public static Employee getEmployeeDetails() - which gets the employee details - id,
+name and salary from the user and returns the employee object.
+public static int getPFPercentage() - which gets the PF percentage and returns the
+same
