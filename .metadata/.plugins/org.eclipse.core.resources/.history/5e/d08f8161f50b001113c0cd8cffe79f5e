@@ -1,0 +1,161 @@
+package com.chitkara.interfac;
+
+/*
+ * Feature, Before Java 8, After Java 8
+ * 
+ * Abstract Methods, Allowed, Allowed
+ * 
+ * Method Bodies, Impossible, Possible(via default)
+ * 
+ * Static Methods, Not Allowed, Allowed
+ * 
+ * Lambdas, No, Yes(Functional Interfaces)
+ * 
+ * private static Methods --> after java9 -->private static method is allowed
+ */
+
+// make a relation Can Do
+
+// interface is used to get 100% abstraction and multiple inheritance
+
+// you can create a default method and override it in the class
+
+//we can not create an object of an interface so we can define the states of an obj.
+
+interface Shape {
+	String colorName = "Red"; // psf--> public static final
+
+	void getArea(); // abstract method
+
+	double getPerameter(); // abstract method
+
+	default void getShape() { // After java 8
+		System.out.println("shape is getting...");
+	}
+
+	static void getMessage() {
+		System.out.println("getting shape message...");
+	}
+
+	private static boolean Validation(String str) {
+		if (str == "hi")
+			return true;
+		else
+			return false;
+	}
+
+}
+
+interface CreateToy extends Shape {
+	void toMake();
+}
+
+class Rectangle implements Shape, CreateToy {
+
+	double length;
+	double width;
+
+	public Rectangle() {
+
+	}
+
+	public Rectangle(double l, double w) {
+		this.length = l;
+		this.width = w;
+	}
+
+	@Override
+	public void getArea() {
+		System.out.println(length * width);
+	}
+
+	@Override
+	public double getPerameter() {
+		return 2 * (length + width);
+	}
+
+	@Override
+	public void toMake() {
+		System.out.println("Toy is being created ...");
+	}
+
+}
+
+class Circle implements Shape, CreateToy {
+
+	double radius;
+
+	public void toMake() {
+		System.out.println("Circle toy is created...");
+
+	}
+
+	public void getArea() {
+		System.out.println(Math.PI * Math.pow(radius, 2));
+
+	}
+
+	public double getPerameter() {
+		return 2 * Math.PI * radius;
+	}
+
+}
+
+//interface Engine {
+//
+//	void pushButton();
+//
+//	void toStopEngine();
+//}
+//
+//interface MusicPlayer1 {
+//	void pushButton();
+//
+//	void toStopMusicPlayer();
+//}
+//
+//class Car implements Engine, MusicPlayer1 {
+//
+//	public void pushButton() {
+//		System.out.println("car is started , music is started");
+//
+//	}
+//
+//	@Override
+//	public void toStopMusicPlayer() {
+//		System.out.println("music player stopped...");
+//
+//	}
+//
+//	@Override
+//	public void toStopEngine() {
+//		System.out.println("Engine is stopped....");
+//
+//	}
+//
+//}
+
+class Main20 {
+	public static void main(String[] args) {
+		Shape shaprShape = new Rectangle(5.5, 10.5);
+		System.out.println(Shape.colorName);
+		shaprShape.getArea();
+		System.out.println(shaprShape.getPerameter());
+		CreateToy createToy = new Rectangle();
+		createToy.toMake();
+		Circle ce = new Circle();
+		ce.radius = 7;
+		ce.getArea();
+		System.out.println(ce.getPerameter());
+		ce.toMake();
+
+//		Engine eg = new Car();
+//		eg.pushButton(); // engine with music
+//
+//		eg.toStopEngine(); // engine stop
+//
+//		MusicPlayer1 ms = new Car();
+//		ms.toStopMusicPlayer(); // music player stop
+
+	}
+}

@@ -1,0 +1,46 @@
+package com.chitkara.interfac;
+
+interface CloudStorage {
+
+	int MAX_FILE_SIZE_MB = 512;
+
+	void uploadFile(String fileName);
+
+	default void secureUpload(String fileName) {
+		authenticateUser();
+		System.out.println("Encrypting and uploading: " + fileName);
+		uploadFile(fileName);
+	}
+
+	static boolean isSizeValid(int size) {
+		logSystemCheck();
+		return size <= MAX_FILE_SIZE_MB;
+	}
+
+	private void authenticateUser() {
+		System.out.println("[Security]: Authenticating user tokens...");
+	}
+
+	private static void logSystemCheck() {
+		System.out.println("[Log]: Validating file size against global limits.");
+	}
+}
+
+class GoogleDrive implements CloudStorage {
+	@Override
+	public void uploadFile(String fileName) {
+		System.out.println("Pushing " + fileName + " to Google Cloud Servers.");
+	}
+}
+
+ class CloudSystemExample {
+	public static void main(String[] args) {
+		GoogleDrive drive = new GoogleDrive();
+
+		drive.secureUpload("Thesis.pdf");
+
+		if (CloudStorage.isSizeValid(200)) {
+			System.out.println("File size is within the " + CloudStorage.MAX_FILE_SIZE_MB + "MB limit.");
+		}
+	}
+}

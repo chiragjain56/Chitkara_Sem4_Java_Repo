@@ -19,139 +19,147 @@ package com.chitkara.interfac;
 // interface is used to get 100% abstraction and multiple inheritance
 
 // you can create a default method and override it in the class
+
+//we can not create an object of an interface so we can define the states of an obj.
+
 interface Shape {
-	String colorname = "white"; // PSF --> public static final
+	String colorName = "Red"; // psf--> public static final
 
-	double getArea();// abstract method
+	void getArea(); // abstract method
 
-	void getPerameter(); // abstract method
+	double getPerameter(); // abstract method
 
-	default void toMake(String name) { // default method after java 8
-		if (permission(name))
-			System.out.println("go for it...");
-		else {
-			System.out.println("Not allowed...");
-		}
-	}
-
-	static void getSms(char a, char b) {
-//		if (a == b)
-//			System.out.println("get the sms...");
-//		else {
-//			System.out.println("not geting");
-//		}
-		getMess(a, b);
-	}
-
-	static void getMessage(char a, char b) { // static method after java 8
-//		if (a == b)
-//			System.out.println("yes , i am getting the shape..");
-//		else
-//			System.out.println("not getting..");
-		getMess(a, b);
-	}
-
-	private static boolean permission(String name) { // private static method after java 9
-		if (name == "Chirag")
-			return true;
-		else {
-			return false;
-		}
-	}
-
-	private static void getMess(char a, char b) {
-		if (a == b)
-			System.out.println("yes , i am getting the shape..");
+	default void getShape() { // After java 8
+		if (Validation("hi"))
+			System.out.println("shape is getting...");
 		else
-			System.out.println("not getting..");
+			System.out.println("not getting...");
+	}
+
+	static void getMessage() {
+		System.out.println("getting shape message...");
+	}
+
+	private static boolean Validation(String str) {
+		if (str == "hi")
+			return true;
+		else
+			return false;
 	}
 
 }
 
-interface CreateToy {
-	void getToy();
+interface CreateToy extends Shape {
+	void toMake();
 }
 
 class Rectangle implements Shape, CreateToy {
 
-	double lenght;
+	double length;
 	double width;
 
+	public Rectangle() {
+
+	}
+
 	public Rectangle(double l, double w) {
-		this.lenght = l;
+		this.length = l;
 		this.width = w;
 	}
 
 	@Override
-	public double getArea() {
-
-		return lenght * width;
+	public void getArea() {
+		System.out.println(length * width);
 	}
 
 	@Override
-	public void getPerameter() {
-		System.out.println(2 * (lenght + width));
-
+	public double getPerameter() {
+		return 2 * (length + width);
 	}
 
 	@Override
-	public void getToy() {
-		System.out.println("My toy is in rectangle shape...");
-
+	public void toMake() {
+		System.out.println("Toy is being created ...");
 	}
 
 }
 
-class Square implements Shape, CreateToy {
-	int side;
+class Circle implements Shape, CreateToy {
 
-	public Square(int a) {
-		this.side = a;
-	}
+	double radius;
 
-	@Override
-	public void getToy() {
-		System.out.println("getting toy of square shape...");
+	public void toMake() {
+		System.out.println("Circle toy is created...");
 
 	}
 
-	@Override
-	public double getArea() {
-		// TODO Auto-generated method stub
-		return side * side;
+	public void getArea() {
+		System.out.println(Math.PI * Math.pow(radius, 2));
+
 	}
 
-	@Override
-	public void getPerameter() {
-		System.out.println(4 * side);
-
+	public double getPerameter() {
+		return 2 * Math.PI * radius;
 	}
 
 }
 
-//we can not create an object of an interface so we can define the states of an obj.
+//interface Engine {
+//
+//	void pushButton();
+//
+//	void toStopEngine();
+//}
+//
+//interface MusicPlayer1 {
+//	void pushButton();
+//
+//	void toStopMusicPlayer();
+//}
+//
+//class Car implements Engine, MusicPlayer1 {
+//
+//	public void pushButton() {
+//		System.out.println("car is started , music is started");
+//
+//	}
+//
+//	@Override
+//	public void toStopMusicPlayer() {
+//		System.out.println("music player stopped...");
+//
+//	}
+//
+//	@Override
+//	public void toStopEngine() {
+//		System.out.println("Engine is stopped....");
+//
+//	}
+//
+//}
 
 class Main20 {
 	public static void main(String[] args) {
+		Shape shaprShape = new Rectangle(5.5, 10.5);
+		shaprShape.getShape();
+//		System.out.println(Shape.colorName);
+//		shaprShape.getArea();
+//		System.out.println(shaprShape.getPerameter());
+//		CreateToy createToy = new Rectangle();
+//		createToy.toMake();
+//		Circle ce = new Circle();
+//		ce.radius = 7;
+//		ce.getArea();
+//		System.out.println(ce.getPerameter());
+//		ce.toMake();
 
-		Shape shape = new Rectangle(5.5, 10.5); // Reference variable
-		System.out.println(Shape.colorname);
-//		Shape.getMessage();
-		shape.toMake("Mohit");
-
-		System.out.println(shape.getArea());
-		shape.getPerameter();
-
-		Shape shape2 = new Square(15);
-		System.out.println(shape2.getArea());
-		shape2.getPerameter();
-
-		CreateToy createToy = new Rectangle(5.5, 10.5);
-		CreateToy createToy2 = new Square(12);
-		createToy.getToy();
-		createToy2.getToy();
-
-		Rectangle rectangle = new Rectangle(2, 3);
+//		Engine eg = new Car();
+//		eg.pushButton(); // engine with music
+//
+//		eg.toStopEngine(); // engine stop
+//
+//		MusicPlayer1 ms = new Car();
+//		ms.toStopMusicPlayer(); // music player stop
 
 	}
 }
