@@ -44,3 +44,11 @@ class CloudSystemExample {
 		}
 	}
 }
+
+class Main {
+	public static void main(String[] args) {
+		CloudStorage.isSizeValid(500);
+		GoogleDrive gDrive = new GoogleDrive();
+		gDrive.secureUpload("Demo.java");
+	}
+}

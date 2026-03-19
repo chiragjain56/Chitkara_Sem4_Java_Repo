@@ -23,44 +23,43 @@ package com.chitkara.interfac;
 //we can not create an object of an interface so we can define the states of an obj.
 
 interface Shape {
-	String colorName = "Red"; // psf--> public static final
+	String colorI = "Red"; // psf --> public static final
 
 	void getArea(); // abstract method
 
-	double getPerameter(); // abstract method
+	void getPerameter(); // abstract method
 
-	default void getShape() { // After java 8
-		if (Validation("hi"))
-			System.out.println("shape is getting...");
-		else
-			System.out.println("not getting...");
+	default void toMake(String str) { // java 8
+		if (validation(str))
+			System.out.println("making a shape...");
+		else {
+			System.out.println("you are wrong person...");
+		}
 	}
 
-	static void getMessage() {
-		System.out.println("getting shape message...");
+	static void getMessage() { // java 8
+		System.out.println("shape is created...");
+		String s = new String("hello").intern();
 	}
 
-	private static boolean Validation(String str) {
-		if (str == "hi")
+	private static boolean validation(String name) {
+		if (name == "Chirag sir")
 			return true;
-		else
+		else {
 			return false;
+		}
 	}
 
 }
 
-interface CreateToy extends Shape {
-	void toMake();
+interface CreateToy {
+	void createToy();
 }
 
 class Rectangle implements Shape, CreateToy {
 
 	double length;
 	double width;
-
-	public Rectangle() {
-
-	}
 
 	public Rectangle(double l, double w) {
 		this.length = l;
@@ -70,96 +69,112 @@ class Rectangle implements Shape, CreateToy {
 	@Override
 	public void getArea() {
 		System.out.println(length * width);
+
 	}
 
 	@Override
-	public double getPerameter() {
-		return 2 * (length + width);
+	public void getPerameter() {
+		System.out.println(2 * (length + width));
+
 	}
 
 	@Override
-	public void toMake() {
-		System.out.println("Toy is being created ...");
+	public void createToy() {
+		System.out.println("Toy is Being created...");
 	}
-
 }
 
 class Circle implements Shape, CreateToy {
-
 	double radius;
 
-	public void toMake() {
-		System.out.println("Circle toy is created...");
+	public Circle(double r) {
+		this.radius = r;
+	}
+
+	public Circle() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void createToy() {
+		System.out.println("shape circle toy is created....");
 
 	}
 
+	@Override
 	public void getArea() {
+		System.out.println("Area of circle: ");
 		System.out.println(Math.PI * Math.pow(radius, 2));
 
 	}
 
-	public double getPerameter() {
-		return 2 * Math.PI * radius;
+	@Override
+	public void getPerameter() {
+		System.out.println("Perimeter of Circle: ");
+		System.out.println(2 * Math.PI * radius);
+
 	}
 
 }
-
-//interface Engine {
-//
-//	void pushButton();
-//
-//	void toStopEngine();
-//}
-//
-//interface MusicPlayer1 {
-//	void pushButton();
-//
-//	void toStopMusicPlayer();
-//}
-//
-//class Car implements Engine, MusicPlayer1 {
-//
-//	public void pushButton() {
-//		System.out.println("car is started , music is started");
-//
-//	}
-//
-//	@Override
-//	public void toStopMusicPlayer() {
-//		System.out.println("music player stopped...");
-//
-//	}
-//
-//	@Override
-//	public void toStopEngine() {
-//		System.out.println("Engine is stopped....");
-//
-//	}
-//
-//}
 
 class Main20 {
 	public static void main(String[] args) {
-		Shape shaprShape = new Rectangle(5.5, 10.5);
-		shaprShape.getShape();
-//		System.out.println(Shape.colorName);
-//		shaprShape.getArea();
-//		System.out.println(shaprShape.getPerameter());
-//		CreateToy createToy = new Rectangle();
-//		createToy.toMake();
-//		Circle ce = new Circle();
-//		ce.radius = 7;
-//		ce.getArea();
-//		System.out.println(ce.getPerameter());
-//		ce.toMake();
+		Shape shape = new Rectangle(5.0, 10.0);
+		shape.getArea();
+		shape.getPerameter();
+		shape.toMake("Manik");
 
-//		Engine eg = new Car();
-//		eg.pushButton(); // engine with music
-//
-//		eg.toStopEngine(); // engine stop
-//
-//		MusicPlayer1 ms = new Car();
-//		ms.toStopMusicPlayer(); // music player stop
+		Shape shape1 = new Circle(5.5);
+		shape1.getArea();
+		shape1.getPerameter();
 
+		CreateToy createToy = new Rectangle(5.0, 10.0);
+		createToy.createToy();
+
+		CreateToy createToy2 = new Circle();
+		createToy2.createToy();
+
+		System.out.println(Shape.colorI);
+
+//		Engine egEngine = new Car();
+//		egEngine.pushButton();
+//		egEngine.stopEngine();
+//
+//		MusicSystem ms = new Car();
+//		ms.stopMS();
 	}
 }
+
+//interface Engine {
+//void pushButton();
+//
+//void stopEngine();
+//}
+//
+//interface MusicSystem {
+//void pushButton();
+//
+//void stopMS();
+//}
+
+//class Car implements Engine, MusicSystem {
+//
+//@Override
+//public void pushButton() {
+//	System.out.println("Engine and MusicPlayer both started together...");
+//
+//}
+//
+//@Override
+//public void stopMS() {
+//	System.out.println("stop ms");
+//
+//}
+//
+//@Override
+//public void stopEngine() {
+//	System.out.println("stop engine...");
+//
+//}
+//
+//}
